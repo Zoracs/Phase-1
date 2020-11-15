@@ -16,5 +16,3 @@ def get_Discord_members():
     for name in sortedList:
         print(name)
     return sortedList    
-
-get_Discord_members()

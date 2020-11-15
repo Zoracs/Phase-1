@@ -1,9 +1,9 @@
-import requests
+import requests , os
 
 def get_Discord_members():
-    headers = {"Authorization": ""} #remember to add bot key
+    headers = {"Authorization": os.getenv('botkey')} #remember to add bot key
     try:  
-        r = requests.get("https://discord.com/api/guilds//members?limit=99", headers=headers) #remember to add guild ID
+        r = requests.get(f"https://discord.com/api/guilds/{os.getenv('guildID')}/members?limit=99", headers=headers) #remember to add guild ID
     except:
         print("Discord API is currently unavailable.")
     sortedList = []
@@ -16,3 +16,5 @@ def get_Discord_members():
     for name in sortedList:
         print(name)
     return sortedList    
+
+get_Discord_members()

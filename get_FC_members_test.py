@@ -1,5 +1,15 @@
-import get_FC_members as Ramon_testList
+from requests.exceptions import ConnectTimeout
+import get_FC_members
 from unittest.mock import patch
+import pytest
+
+
+@patch("get_Discord_members.requests.get")
+def test_custom_request(mock):
+    mock.side_effect = ConnectTimeout
+
+    with pytest.raises(ConnectTimeout):
+        assert get_FC_members.get_FC_members()
 
 
 @patch('get_FC_members.requests.get')
@@ -40,5 +50,5 @@ def test_that_function_returns_list(mock):
             }]
     }
     mock.return_value.json.return_value = FC_data
-    assert Ramon_testList.get_FC_members(
+    assert get_FC_members.get_FC_members(
     ) == ['Dr Suna', 'Freya Luna', 'Diablo Devil']

@@ -1,7 +1,8 @@
-from requests.exceptions import ConnectTimeout, ReadTimeout, Timeout
+from requests.exceptions import ConnectTimeout
 import get_FC_members
 from unittest.mock import patch
 import pytest
+
 
 @patch("get_Discord_members.requests.get")
 def test_custom_request(mock):
@@ -9,6 +10,7 @@ def test_custom_request(mock):
 
     with pytest.raises(ConnectTimeout):
         assert get_FC_members.get_FC_members()
+
 
 @patch('get_FC_members.requests.get')
 def test_that_function_returns_list(mock):

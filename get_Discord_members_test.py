@@ -1,7 +1,8 @@
-from requests.exceptions import ConnectTimeout, ReadTimeout, Timeout
-from unittest.mock import Mock, patch
+from requests.exceptions import ConnectTimeout
+from unittest.mock import patch
 import get_Discord_members
 import pytest
+
 
 @patch("get_Discord_members.requests.get")
 def test_custom_request(mock):
@@ -9,6 +10,7 @@ def test_custom_request(mock):
 
     with pytest.raises(ConnectTimeout):
         assert get_Discord_members.get_Discord_members()
+
 
 @patch("get_Discord_members.requests.get")
 def test_get_the_Members_from_DiscordAPI(mock):
@@ -203,4 +205,14 @@ def test_get_the_Members_from_DiscordAPI(mock):
     ]
     mock.return_value.json.return_value = Discord_Data
     assert get_Discord_members.get_Discord_members() == [
-        'Deadly Spectrum', 'Dr Suna', 'Yuki', 'Diablo', 'Ys', 'RAGE MODE [ON]', 'Rin', 'Straef', 'Freya Luna', 'Zoracs_Project', 'fuckDiscord']
+        'Deadly Spectrum',
+        'Dr Suna',
+        'Yuki',
+        'Diablo',
+        'Ys',
+        'RAGE MODE [ON]',
+        'Rin',
+        'Straef',
+        'Freya Luna',
+        'Zoracs_Project',
+        'fuckDiscord']

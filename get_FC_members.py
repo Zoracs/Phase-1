@@ -14,4 +14,3 @@ def get_FC_members():
     for name in sortedList:
         print(name)
     return sortedList
-

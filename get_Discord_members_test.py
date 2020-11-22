@@ -1,6 +1,14 @@
-from unittest.mock import patch
+from requests.exceptions import ConnectTimeout, ReadTimeout, Timeout
+from unittest.mock import Mock, patch
 import get_Discord_members
+import pytest
 
+@patch("get_Discord_members.requests.get")
+def test_custom_request(mock):
+    mock.side_effect = ConnectTimeout
+
+    with pytest.raises(ConnectTimeout):
+        assert get_Discord_members.get_Discord_members()
 
 @patch("get_Discord_members.requests.get")
 def test_get_the_Members_from_DiscordAPI(mock):

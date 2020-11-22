@@ -9,8 +9,8 @@ def get_Discord_members():
         r = requests.get(
             f"https://discord.com/api/guilds/{os.getenv('guildID')}/members?limit=99",
             headers=headers)
-    except BaseException:
-        print("Discord API is currently unavailable.")
+    except BaseException as e:
+        raise e
     sortedList = []
     print(str(r))
     for x in r.json():

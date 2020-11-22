@@ -1,5 +1,5 @@
 import get_FC_members as Ramon_testList
-from unittest.mock import Mock, patch
+from unittest.mock import patch
 
 
 @patch('get_FC_members.requests.get')

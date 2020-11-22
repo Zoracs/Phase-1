@@ -1,9 +1,11 @@
 import requests
 
+
 def get_FC_members():
     try:
-        r = requests.get("https://xivapi.com/freecompany/9228438586435663178?data=FCM")
-    except:
+        r = requests.get(
+            "https://xivapi.com/freecompany/9228438586435663178?data=FCM")
+    except BaseException:
         print("XIV.API is currently not responding.")
     sortedList = []
     print(str(r))
@@ -12,5 +14,6 @@ def get_FC_members():
     for name in sortedList:
         print(name)
     return sortedList
+
 
 get_FC_members()

@@ -6,10 +6,12 @@ def CSV_list(Username_list, Filename):
     lastEntry = len(Username_list) - 1
 
     for x in Username_list:
+        if not Username_list:
+            return "List is empty"
         if x == Username_list[lastEntry]:
             File.write(x)
-        elif len(Username_list) == 0:
-            raise ValueError("List is empty.")
+        # elif len(Username_list) == 0:
+        #     raise ValueError("List is empty.")
         else:
             File.write(f"{x}, ")
     File.close()

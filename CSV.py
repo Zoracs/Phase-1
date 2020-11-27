@@ -5,7 +5,7 @@ def CSV_list(Username_list, Filename):
     File = open(f"{Filename}.csv", "w")
     lastEntry = len(Username_list) - 1
     if not Username_list:
-            return "List is empty"
+        return "List is empty"
     else:
         for x in Username_list:
             # if not Username_list:

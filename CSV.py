@@ -4,7 +4,9 @@
 def CSV_list(Username_list, Filename):
     File = open(f"{Filename}.csv", "w")
     lastEntry = len(Username_list) - 1
-    try:
+    if not Username_list:
+        return "List is empty"
+    else:
         for x in Username_list:
             # if not Username_list:
             #     return "List is empty"
@@ -14,7 +16,5 @@ def CSV_list(Username_list, Filename):
             #     raise ValueError("List is empty.")
             else:
                 File.write(f"{x}, ")
-    except ValueError as a:
-        raise a
     File.close()
     return f"{Filename}.csv"

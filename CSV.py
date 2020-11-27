@@ -1,4 +1,5 @@
-import csv
+# import csv
+
 
 def CSV_list(Username_list, Filename):
     File = open(f"{Filename}.csv", "w")
@@ -13,4 +14,3 @@ def CSV_list(Username_list, Filename):
             File.write(f"{x}, ")
     File.close()
     return f"{Filename}.csv"
-    

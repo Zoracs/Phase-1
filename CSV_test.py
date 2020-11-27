@@ -1,6 +1,7 @@
-import csv
+# import csv
 import os
 import CSV
+
 
 def test_exception_if_list_is_empty():
     empty_list = []
@@ -14,5 +15,3 @@ def test_that_list_is_written_to_a_file():
     File.close()
     os.remove(str(Filename))
     assert Result == "Dr Suna, Ichiro, Freya Luna"
-
-

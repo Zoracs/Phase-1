@@ -4,7 +4,7 @@
 def CSV_list(Username_list, Filename):
     File = open(f"{Filename}.csv", "w")
     lastEntry = len(Username_list) - 1
-    
+
     for x in Username_list:
         if x == Username_list[lastEntry]:
             File.write(x)

@@ -4,6 +4,12 @@ import CSV
 import pytest
 
 
+def test_if_input_for_list_is_None():
+    empty_list = None
+    with pytest.raises(ValueError):
+        assert CSV.CSV_list(empty_list, "FC-List")
+
+
 def test_exception_if_list_is_empty():
     empty_list = []
     with pytest.raises(ValueError):

@@ -6,7 +6,8 @@ import pytest
 
 def test_exception_if_list_is_empty():
     empty_list = []
-    assert CSV.CSV_list(empty_list, "FC-List")
+    with pytest.raises(ValueError):
+        assert CSV.CSV_list(empty_list, "FC-List")
 
 
 def test_exception_when_Filename_is_above_80_characters():

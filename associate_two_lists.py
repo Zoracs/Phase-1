@@ -2,6 +2,7 @@ import get_Discord_members
 import get_FC_members
 import CSV
 import csv
+import os
 
 def get_lists(source):
     
@@ -16,5 +17,5 @@ def get_lists(source):
         csvreader = csv.reader(csvfile, delimiter=',', quotechar='|')
         for row in csvreader:
             return_value = row
+    os.remove(filename)
     return [item.strip(' ') for item in return_value]
-

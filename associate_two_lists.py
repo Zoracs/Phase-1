@@ -19,3 +19,25 @@ def get_lists(source):
             return_value = row
     os.remove(filename)
     return [item.strip(' ') for item in return_value]
+
+
+def establish_relationship_between_the_lists():
+
+    Discord_list = get_lists("Discord")
+    FC_list = get_lists("XIV_API")
+    completed_list = {}
+    result = True
+    for name in Discord_list:
+        print(f"Who is {name} in the FC?")
+        while result:
+            if input() not in FC_list:
+                print("Please input an existing name.")
+            else:
+                result = False
+        completed_list[name] = input()
+        result = True
+    print(str(completed_list))
+
+
+establish_relationship_between_the_lists()
+

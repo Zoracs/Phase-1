@@ -4,8 +4,9 @@ import CSV1
 import csv
 import os
 
+
 def get_lists(source):
-    
+
     member_list = []
     if source == "Discord":
         member_list = get_Discord_members.get_Discord_members()
@@ -37,7 +38,7 @@ def establish_relationship_between_the_lists():
                 return 'Nope, try again next time.'
             if answer not in FC_list:
                 print("Please input an existing name.")
-                stupid_answer +=1
+                stupid_answer += 1
             else:
                 correct_name = answer
                 print("name added")
@@ -45,5 +46,3 @@ def establish_relationship_between_the_lists():
         completed_list[name] = correct_name
         result = True
     return completed_list
-
-

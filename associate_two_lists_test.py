@@ -107,3 +107,22 @@ def test_if_ingested_files_produce_a_list_from_FC_members_with_spaces(mock):
     mock.return_value.json.return_value = FC_data_with_spaces
     result = associate_two_lists.get_lists('XIV_API')
     assert result == ["test space", "test1 space"]
+
+@patch('builtins.input')
+@patch('associate_two_lists.get_lists')
+def test_function_get_lists_and_mock_input(mock1, mock2):
+    
+    mock1.return_value = ["Dr Suna"]
+    mock2.return_value = 'Dr Suna'
+    result = associate_two_lists.establish_relationship_between_the_lists()
+    assert result == {'Dr Suna':'Dr Suna'}
+
+@patch('builtins.input')
+@patch('associate_two_lists.get_lists')
+def test_function_get_lists_and_mock_input_2(mock1, mock2):
+    
+    mock1.return_value = ["Dr Suna"]
+    mock2.return_value = 'Dr Boner'
+    result = associate_two_lists.establish_relationship_between_the_lists()
+    assert result == 'Nope, try again next time.'
+
